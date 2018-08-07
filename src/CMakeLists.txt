@@ -23,9 +23,11 @@ else ()
   set (QUESOGLC_SOURCES ${QUESOGLC_SOURCES} ocharmap.c ocontext.c omaster.c)
 endif ()
 
+GET_FILENAME_COMPONENT(QuesoGLC_SOURCE_DIR .. ABSOLUTE)
+
 add_custom_command (OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/database.c
-  COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_SOURCE_DIR}/database/buildDB.py
-  MAIN_DEPENDENCY ${CMAKE_SOURCE_DIR}/database/buildDB.py
+  COMMAND ${PYTHON_EXECUTABLE} ${QuesoGLC_SOURCE_DIR}/database/buildDB.py
+  MAIN_DEPENDENCY ${QuesoGLC_SOURCE_DIR}/database/buildDB.py
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
 set_source_files_properties ("${CMAKE_CURRENT_BINARY_DIR}/database.c" PROPERTIES GENERATED 1)
@@ -51,4 +53,4 @@ install (TARGETS GLC
 	LIBRARY DESTINATION lib
 	ARCHIVE DESTINATION lib
 )
-install (DIRECTORY ${CMAKE_SOURCE_DIR}/include/GL DESTINATION include)
+install (DIRECTORY ${QuesoGLC_SOURCE_DIR}/include/GL DESTINATION include)

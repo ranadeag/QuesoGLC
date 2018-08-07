@@ -28,7 +28,7 @@ else:
     numchars = 256
 
 print "Open URL..."
-unicodata = urllib.urlopen("http://www.unicode.org/Public/UNIDATA/UnicodeData.txt")
+unicodata = urllib.urlopen("ftp://ftp.unicode.org/Public/UNIDATA/UnicodeData.txt")
 print "Read data from URL..."
 lignes = unicodata.readlines()
 print "Close URL..."
